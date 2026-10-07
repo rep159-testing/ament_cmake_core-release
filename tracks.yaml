@@ -1,3 +1,4 @@
+release_repo_url: git@github.com:rep159-testing/ament_cmake_core-release.git
 tracks:
   upstream:
     actions:
