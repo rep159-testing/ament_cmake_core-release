@@ -23,6 +23,10 @@ endif
 
 DEB_HOST_GNU_TYPE ?= $(shell dpkg-architecture -qDEB_HOST_GNU_TYPE)
 
+# Needed to bootstrap since the ros_workspace package does not yet exist.
+PYTHON3_VERSION=$(shell py3versions -d)
+export PYTHONPATH=@(InstallationPrefix)/lib/$(PYTHON3_VERSION)/site-packages
+
 %:
 	dh $@@ -v --buildsystem=cmake --builddirectory=.obj-$(DEB_HOST_GNU_TYPE)
 
